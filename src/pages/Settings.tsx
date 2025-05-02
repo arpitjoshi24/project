@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Save, RefreshCw, Mail, MapPin, AlertTriangle } from 'lucide-react';
+import { Save, RefreshCw,  MapPin, AlertTriangle } from 'lucide-react';
 
 const Settings: React.FC = () => {
   const [settings, setSettings] = useState({

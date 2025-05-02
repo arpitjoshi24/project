@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppContext } from '../context/AppContext';
 import DataTable from '../components/DataTable';
-import { Student, Stop, Bus } from '../types';
+import { Student,  } from '../types';
 
 const Students: React.FC = () => {
   const { students, stops, buses } = useAppContext();

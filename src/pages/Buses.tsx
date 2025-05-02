@@ -1,27 +1,28 @@
 import React from 'react';
 import { useAppContext } from '../context/AppContext';
 import DataTable from '../components/DataTable';
-import { Bus, Route } from '../types';
+import { Bus } from '../types';
 
 const Buses: React.FC = () => {
   const { buses, routes } = useAppContext();
 
   const handleAddBus = () => {
-    // Implementation for adding a new bus would go here
     console.log('Add bus');
   };
 
   const handleEditBus = (bus: Bus) => {
-    // Implementation for editing a bus would go here
     console.log('Edit bus', bus);
   };
 
   const handleDeleteBus = (bus: Bus) => {
-    // Implementation for deleting a bus would go here
     console.log('Delete bus', bus);
   };
 
-  const busColumns = [
+  const busColumns: {
+    header: string;
+    accessor: keyof Bus | ((bus: Bus) => React.ReactNode | string | number);
+    className?: string;
+  }[] = [
     {
       header: 'Name',
       accessor: 'name',
@@ -41,18 +42,19 @@ const Buses: React.FC = () => {
       header: 'Utilization',
       accessor: (bus: Bus) => {
         const route = routes.find(r => r.busId === bus.id);
-        const utilization = route ? (route.totalStudents / bus.capacity) * 100 : 0;
+        const totalStudents = route ? route.totalStudents : 0;
+        const utilization = bus.capacity ? (totalStudents / bus.capacity) * 100 : 0;
         return (
           <div className="flex items-center">
             <div className="w-24 bg-gray-200 rounded-full h-2.5 mr-2">
-              <div 
+              <div
                 className={`h-2.5 rounded-full ${
-                  utilization > 100 
-                    ? 'bg-red-500' 
-                    : utilization > 85 
-                      ? 'bg-amber-500' 
-                      : 'bg-green-500'
-                }`} 
+                  utilization > 100
+                    ? 'bg-red-500'
+                    : utilization > 85
+                    ? 'bg-amber-500'
+                    : 'bg-green-500'
+                }`}
                 style={{ width: `${Math.min(utilization, 100)}%` }}
               ></div>
             </div>
@@ -105,8 +107,7 @@ const Buses: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-  
+  );
 };
 
 export default Buses;
