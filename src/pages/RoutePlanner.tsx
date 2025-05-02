@@ -7,7 +7,7 @@ import { Sliders, AlertCircle, Info } from 'lucide-react';
 const RoutePlanner: React.FC = () => {
   const {
     buses,
-    students,
+    // students,
     stops,
     routes,
     optimizeRoutes,
@@ -210,6 +210,7 @@ const RoutePlanner: React.FC = () => {
               <h2 className="text-lg font-medium text-gray-900">Route Map</h2>
               <p className="text-sm text-gray-500">Visualize current routes and stops</p>
             </div>
+            {/* map here */}
             <div className="h-[600px] p-4">
               <Map
                 stops={stops}

@@ -3,11 +3,12 @@ import { useAppContext } from '../context/AppContext';
 import Map from '../components/Map';
 import RouteList from '../components/RouteList';
 import OptimizationMetrics from '../components/OptimizationMetrics';
-import { Route, Bus, Student, Stop } from '../types';
+import { Route, Bus } from '../types';
+
 import {
   TrendingDown,
   Users,
-  Clock,
+ 
   AlertCircle,
   Bus as BusIcon,
   MapPin

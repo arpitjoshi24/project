@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { 
   LayoutDashboard, 
   MapPin, 
-  Users, 
+  // Users, 
   Bus, 
   Map, 
-  Settings as SettingsIcon,
+  // Settings as SettingsIcon,
   ChevronLeft,
   ChevronRight 
 } from 'lucide-react';
@@ -21,7 +21,7 @@ const Sidebar: React.FC = () => {
   return (
     <div 
       className={`bg-blue-700 text-white transition-all duration-300 ease-in-out ${
-        collapsed ? 'w-16' : 'w-64'
+        collapsed ? 'w-' : 'w-64'
       } flex flex-col`}
     >
       <div className="flex items-center justify-between h-16 px-4 border-b border-blue-600">
@@ -38,7 +38,8 @@ const Sidebar: React.FC = () => {
         )}
         <button 
           onClick={toggleSidebar}
-          className="p-1 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="p-1 rounded-full hover:bg-blue-600 focus:outline-none 
+          focus:ring-2 focus:ring-blue-400"
         >
           {collapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
         </button>
@@ -58,12 +59,12 @@ const Sidebar: React.FC = () => {
             label="Route Planner" 
             collapsed={collapsed} 
           />
-          <SidebarItem 
+          {/* <SidebarItem 
             to="/students" 
             icon={<Users />} 
             label="Students" 
             collapsed={collapsed} 
-          />
+          /> */}
           <SidebarItem 
             to="/buses" 
             icon={<Bus />} 
@@ -76,12 +77,12 @@ const Sidebar: React.FC = () => {
             label="Stops" 
             collapsed={collapsed} 
           />
-          <SidebarItem 
+          {/* <SidebarItem 
             to="/settings" 
             icon={<SettingsIcon />} 
             label="Settings" 
             collapsed={collapsed} 
-          />
+          /> */}
         </ul>
       </nav>
 
